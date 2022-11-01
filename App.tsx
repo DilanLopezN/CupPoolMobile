@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+
+import { NativeBaseProvider, Text, Center } from 'native-base'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NativeBaseProvider>
+      <Center flex={1} bgColor="fuchsia.400">
+        <Text color="black" fontSize={24}>
+          Nlw Cup Poll
+        </Text>
+        <StatusBar style="auto" />
+      </Center>
+    </NativeBaseProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
