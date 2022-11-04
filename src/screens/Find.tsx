@@ -56,8 +56,9 @@ export function Find() {
   }
 
   return (
-    <VStack flex={1} bgColor="gray.900">
+    <VStack flex={1} bg="gray.900">
       <Header title="Buscar por código" showBackButton />
+
       <VStack mt={8} mx={5} alignItems="center">
         <Heading
           fontFamily="heading"
@@ -66,20 +67,18 @@ export function Find() {
           mb={8}
           textAlign="center"
         >
-          Encontre um bolão atráves de seu código único.
+          Encontre um bolão através de{'\n'}
+          seu código único
         </Heading>
 
         <Input
           mb={2}
-          placeholder="Qual código do bolão"
-          onChangeText={setCode}
+          placeholder="Qual o código do bolão?"
           autoCapitalize="characters"
+          onChangeText={setCode}
         />
-        <Button
-          title="BUSCAR BOLÃO"
-          isLoading={isLoading}
-          onPress={handleJoinPool}
-        />
+
+        <Button title="BUSCAR POR CÓDIGO" onPress={handleJoinPool} />
       </VStack>
     </VStack>
   )
