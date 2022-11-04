@@ -4,17 +4,19 @@ import { useTheme } from 'native-base'
 import { Platform } from 'react-native'
 import { New } from '../screens/New'
 import { Pools } from '../screens/Pools'
-
-import sizes from 'native-base/lib/typescript/theme/base/sizes'
+import { Find } from '../screens/Find'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
 export function AppRoutes() {
-  const { colors } = useTheme()
+  const { colors, sizes } = useTheme()
+
+  const size = sizes[6]
   return (
     <Navigator
       screenOptions={{
         headerShown: false,
+        tabBarLabelPosition: 'beside-icon',
         tabBarActiveTintColor: colors.yellow[500],
         tabBarInactiveTintColor: colors.red[500],
         tabBarStyle: {
@@ -33,7 +35,8 @@ export function AppRoutes() {
         name="new"
         component={New}
         options={{
-          tabBarIcon: ({ color }) => <PlusCircle color={color} />
+          tabBarIcon: ({ color }) => <PlusCircle color={color} size={size} />,
+          tabBarLabel: 'Novo Bolão'
         }}
       />
 
@@ -41,8 +44,15 @@ export function AppRoutes() {
         name="pools"
         component={Pools}
         options={{
-          tabBarIcon: ({ color }) => <SoccerBall color={color} />
+          tabBarIcon: ({ color }) => <SoccerBall color={color} size={size} />,
+          tabBarLabel: 'Meus bolões'
         }}
+      />
+
+      <Screen
+        name="find"
+        component={Find}
+        options={{ tabBarButton: () => null }}
       />
     </Navigator>
   )
