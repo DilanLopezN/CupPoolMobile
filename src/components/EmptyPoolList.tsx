@@ -1,8 +1,10 @@
-import { Row, Text, Pressable } from 'native-base'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { Row, Text, Pressable } from 'native-base';
 
 export function EmptyPoolList() {
-  const { navigate } = useNavigation()
+
+  const { navigate } = useNavigation();
+
   return (
     <Row flexWrap="wrap" justifyContent="center">
       <Text color="white" fontSize="sm" textAlign="center">
@@ -10,13 +12,9 @@ export function EmptyPoolList() {
       </Text>
 
       <Pressable onPress={() => navigate('find')}>
-        <Text
-          textDecorationLine="underline"
-          color="yellow.500"
-          textDecoration="underline"
-        >
-          buscar um por código
-        </Text>
+          <Text textDecorationLine="underline" color="yellow.500" textDecoration="underline">
+            buscar um por código
+          </Text>
       </Pressable>
 
       <Text color="white" fontSize="sm" textAlign="center" mx={1}>
@@ -24,7 +22,7 @@ export function EmptyPoolList() {
       </Text>
 
       <Pressable onPress={() => navigate('new')}>
-        <Text textDecorationLine="underline" color="yellow.500">
+        <Text textDecorationLine="underline"  color="yellow.500">
           criar um novo
         </Text>
       </Pressable>
@@ -33,5 +31,5 @@ export function EmptyPoolList() {
         ?
       </Text>
     </Row>
-  )
+  );
 }
